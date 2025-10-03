@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(0, 0, 20, 0.5), rgba(0, 0, 20, 0.7)), 
+                              url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?cs=srgb&dl=pexels-umkreisel-app-956981.jpg&fm=jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 40em;
+            height: 40em;
+            position: relative;
+        }
+
+        .sun {
+            position: fixed;
+            top: 8%;
+            left: 30%;
+            transform: scale(0.25);
+            animation: sun 15s linear infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.9)); 
+            border: 2px solid rgba(255, 204, 0, 0.3); 
+            border-radius: 50%;
+        }
+
+        @keyframes sun {
+            from {
+                transform: rotateZ(0) scale(0.25);
+            }
+            to {
+                transform: rotateZ(360deg) scale(0.25);
+            }
+        }
+
+        @keyframes orbitRotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .orbit, .orbit1, .orbit2, .orbit3, .orbit4, .orbit5, .orbit6, .orbit7 {
+            position: fixed;
+            border: 2px dashed rgba(255, 255, 255, 0.6); 
+            border-radius: 50%;
+            transform-origin: center center;
+            animation: orbitRotate 30s linear infinite;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.4); 
+        }
+
+        .planet {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: transform 0.3s ease; 
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+        }
+
+        .planet:hover {
+            transform: translate(-50%, -50%) scale(1.15); 
+        }
+
+        .planet-label {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 0.7em;
+            background: rgba(0, 0, 50, 0.6); 
+            padding: 3px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+        }
+
+        .mercury { width: 190px; height: 190px; animation: orbitRotate 68.7s linear infinite; }
+        .orbit { top: 35%; left: 45.5%; width: 190px; height: 190px; }
+
+        .venus { width: 290px; height: 290px; animation: orbitRotate 48.7s linear infinite; }
+        .orbit1 { top: 29%; left: 41.5%; width: 290px; height: 290px; }
+
+        .earth { width: 405px; height: 405px; animation: orbitRotate 36.5s linear infinite; }
+        .orbit2 { top: 23.5%; left: 37.5%; width: 405px; height: 405px; }
+
+        .mars { width: 525px; height: 525px; animation: orbitRotate 26.5s linear infinite; }
+        .orbit3 { top: 18%; left: 34%; width: 525px; height: 525px; }
+
+        .jupiter { width: 645px; height: 645px; animation: orbitRotate 17s linear infinite; }
+        .orbit4 { top: 12%; left: 30%; width: 645px; height: 645px; }
+
+        .saturn { width: 775px; height: 775px; animation: orbitRotate 19s linear infinite; }
+        .orbit5 { top: 5%; left: 26%; width: 775px; height: 775px; }
+
+        .uranus { width: 900px; height: 900px; animation: orbitRotate 15s linear infinite; }
+        .orbit6 { top: -1%; left: 22%; width: 900px; height: 900px; }
+
+        .neptune { width: 1050px; height: 1050px; animation: orbitRotate 21s linear infinite; }
+        .orbit7 { top: -10%; left: 17%; width: 1050px; height: 1050px; }
+
+        @media (max-width: 768px) {
+            .container {
+                transform: scale(0.6); 
+            }
+            .planet-label {
+                font-size: 0.6em; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sun">
+            <img src="https://www.solarsystemscope.com/spacepedia/images/handbook/renders/sun.png" alt="Sun">
+        </div>
+
+        <div class="orbit mercury">
+            <div class="planet">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Transparent_Mercury.png" height="40px" alt="Mercury">
+                <span class="planet-label">Mercury</span>
+            </div>
+        </div>
+
+        <div class="orbit1 venus">
+            <div class="planet">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Venus_globe_-_transparent_background.png/1200px-Venus_globe_-_transparent_background.png" height="50px" alt="Venus">
+                <span class="planet-label">Venus</span>
+            </div>
+        </div>
+
+        <div class="orbit2 earth">
+            <div class="planet">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Earth_Western_Hemisphere_transparent_background.png/1200px-Earth_Western_Hemisphere_transparent_background.png?20150429101758" height="60px" alt="Earth">
+                <span class="planet-label">Earth</span>
+            </div>
+        </div>
+
+        <div class="orbit3 mars">
+            <div class="planet">
+                <img src="https://pngimg.com/d/mars_planet_PNG7.png" height="55px" alt="Mars">
+                <span class="planet-label">Mars</span>
+            </div>
+        </div>
+
+        <div class="orbit4 jupiter">
+            <div class="planet">
+                <img src="https://png.pngtree.com/png-vector/20240124/ourmid/pngtree-isolated-realistic-jupiter-illustration-png-image_11474385.png" height="100px" alt="Jupiter">
+                <span class="planet-label">Jupiter</span>
+            </div>
+        </div>
+
+        <div class="orbit5 saturn">
+            <div class="planet">
+                <img src="https://static.vecteezy.com/system/resources/previews/039/630/632/non_2x/ai-generated-saturn-planet-isolated-on-transparent-background-free-png.png" height="95px" alt="Saturn">
+                <span class="planet-label">Saturn</span>
+            </div>
+        </div>
+
+        <div class="orbit6 uranus">
+            <div class="planet">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Transparent_Uranus.png" height="80px" alt="Uranus">
+                <span class="planet-label">Uranus</span>
+            </div>
+        </div>
+
+        <div class="orbit7 neptune">
+            <div class="planet">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Transparent_Neptune.png" height="75px" alt="Neptune">
+                <span class="planet-label">Neptune</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
